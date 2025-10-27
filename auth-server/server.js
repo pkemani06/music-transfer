@@ -18,7 +18,9 @@ const creds = {
 };
 
 // initialize variables
-let redirect_uri = 'https://127.0.0.1:8888/callback';
+let redirect_uri = process.env.RENDER 
+  ? 'https://music-transfer-server.onrender.com/callback'
+  : 'https://127.0.0.1:8888/callback';
 let client_id = 'a8fd8f81b4884e9495403fd626b8d150'
 let client_secret = '65a80577ebbd4887ba0ab04fbaab3c16'
 console.log('CLIENT_ID in code ->', client_id);
@@ -42,7 +44,7 @@ app.get('/login', function (req, res) {
         redirect_uri: redirect_uri,
         state
     });
-    console.log('Authorize URL ->', authUrl);
+    console.log('Authorize URL', authUrl);
     return res.redirect(authUrl);
 });
 
@@ -105,7 +107,8 @@ app.get('/callback', function (req, res) {
     });
 
     // Redirect to React frontend with token
-    const url = 'https://umbrose-jaylynn-nondemocratically.ngrok-free.dev/callback';
+    // Redirect to React frontend with token
+    const url = process.env.FRONTEND_URL || 'http://localhost:3000/callback';
     return res.redirect(url + '?access_token=' + encodeURIComponent(access_token));
   });
 });
