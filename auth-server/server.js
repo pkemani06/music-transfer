@@ -245,7 +245,8 @@ app.get('/token', (req, res) => {
 
 // Use HTTP in production (Render handles HTTPS)
 // Use HTTPS locally for development
-if (process.env.NODE_ENV === 'production') {
+// Use HTTP on Render (it handles HTTPS), HTTPS locally
+if (process.env.RENDER) {
   app.listen(port, '0.0.0.0', () => {
     console.log(`Server running on port ${port}`);
   });
