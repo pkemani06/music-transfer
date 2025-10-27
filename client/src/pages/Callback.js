@@ -9,31 +9,33 @@ function Callback() {
     const navigate = useNavigate();
     useEffect (() => {
         // getting URL parameters
+        const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
         const params = new URLSearchParams(window.location.search);
         const access_token = params.get('access_token');
 
-        // check for token
-        if (access_token){
+        if (access_token) {
+        // ✅ Save token and optional expiry info
+        localStorage.setItem('spotify_access_token', access_token);
+        localStorage.setItem(
+            'spotify_access_token_meta',
+            JSON.stringify({ exp: Date.now() + 3600 * 1000 }) // token expires in 1 hour
+        );
 
-            localStorage.setItem('spotify_access_token', access_token)
-            console.log('saved');
-
-            setTimeout (() => {
-                navigate('/transfer');
-            }, 1000);
-        }
-        else{
-            console.log('no url');
-            navigate('/');
-        }
-
+        console.log('Token saved!');
+        const id = setTimeout(() => navigate('/transfer', { replace: true }), 300);
+        return () => clearTimeout(id);
+        } 
+    else {
+        console.log('No access token in URL.');
+        navigate('/', { replace: true });
+    }
         // make sure we got it
         console.log('Token ' + access_token);
     }, [navigate]);
     return (
         <div style = {styles.container}>
             <h1>Processing your login...</h1>
-            <p>Please wait, we're getting your Spotify daa!</p>
+            <p>Please wait, we're getting your Spotify data!</p>
         </div>
     );
 }
