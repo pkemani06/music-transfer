@@ -10,7 +10,7 @@ function Login() {
     const [isHovered, setIsHovered] = useState(false)
     // arrow syntax is not needed? but i get an error without it 
     const handleSpotifyLogin = () =>{
-        window.location.href = 'https://localhost:8888/login';
+        window.location.href = 'https://music-transfer-server.onrender.com/login';
     };
     return (
         // visual part

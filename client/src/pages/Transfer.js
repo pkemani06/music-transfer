@@ -48,7 +48,7 @@ function Transfer () {
         console.log('Initializing MusicKit...');
         
         // get apple token from server.js
-        fetch('https://localhost:8888/token')
+        fetch('https://music-transfer-server.onrender.com/token')
             .then(res => res.json())
             .then(data => {
                 // set up music kit with my token
@@ -138,7 +138,7 @@ function Transfer () {
 
 try {
     console.log('Getting Apple Music token...');
-    const appleRes = await fetch('https://localhost:8888/token');
+    const appleRes = await fetch('https://music-transfer-server.onrender.com/token');
     const appleData = await appleRes.json();
     const appleToken = appleData.token;
 
