@@ -243,10 +243,17 @@ app.get('/token', (req, res) => {
   res.send(JSON.stringify({ token }));
 });
 
-https.createServer(creds, app).listen(port, () => {
-  console.log(`Listening on https://localhost:${port}  Go /login to initiate flow.`);
-});
-
+// Use HTTP in production (Render handles HTTPS)
+// Use HTTPS locally for development
+if (process.env.NODE_ENV === 'production') {
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Server running on port ${port}`);
+  });
+} else {
+  https.createServer(creds, app).listen(port, () => {
+    console.log(`Listening on https://localhost:${port}...`);
+  });
+}
 
 /* initialize packages being used
 let express = require('express') 
