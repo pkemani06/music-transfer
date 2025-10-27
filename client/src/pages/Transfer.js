@@ -171,7 +171,7 @@ try {
                 appleMusicIds.push(song.id);
             }
             
-            await sleep(100);
+            await sleep(20);
         }
         
         console.log(`Found ${appleMusicIds.length} of ${playlist.tracks.length} tracks on Apple Music`);
