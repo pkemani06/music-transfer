@@ -1,0 +1,18 @@
+node_modules/
+.env
+*.p8
+certs/
+```
+
+**In `client/` folder, create `.gitignore`:**
+```
+node_modules/
+build/
+.env
+```
+
+**In `auth-server/` folder, create `.gitignore`:**
+```
+node_modules/
+certs/
+apple-private_key.p8
