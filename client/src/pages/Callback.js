@@ -14,23 +14,19 @@ function Callback() {
         const access_token = params.get('access_token');
 
         if (access_token) {
-        // ✅ Save token and optional expiry info
         localStorage.setItem('spotify_access_token', access_token);
+        window.history.replaceState(null, document.title, window.location.pathname); // <-- added
         localStorage.setItem(
             'spotify_access_token_meta',
-            JSON.stringify({ exp: Date.now() + 3600 * 1000 }) // token expires in 1 hour
+            JSON.stringify({ exp: Date.now() + 3600 * 1000 })
         );
 
-        console.log('Token saved!');
         const id = setTimeout(() => navigate('/transfer', { replace: true }), 300);
         return () => clearTimeout(id);
-        } 
-    else {
+        } else {
         console.log('No access token in URL.');
         navigate('/', { replace: true });
-    }
-        // make sure we got it
-        console.log('Token ' + access_token);
+        }
     }, [navigate]);
     return (
         <div style = {styles.container}>

@@ -109,7 +109,11 @@ app.get('/callback', function (req, res) {
     // Redirect to React frontend with token
     // Redirect to React frontend with token
     const url = process.env.FRONTEND_URL || 'http://localhost:3000/callback';
-    return res.redirect(url + '?access_token=' + encodeURIComponent(access_token));
+    const qs = new URLSearchParams({
+        access_token,
+        expires_in: String(body.expires_in || 3600),
+        });
+    return res.redirect(`${FRONTEND_URL}?${qs.toString()}`);
   });
 });
 
