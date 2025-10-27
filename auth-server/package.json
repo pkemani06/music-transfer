@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "json": "^11.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "querystring": "^0.2.1",
+    "request": "^2.88.2",
+    "requests": "^0.3.0"
+  },
+  "name": "auth-server",
+  "version": "1.0.0",
+  "description": "Authenication srver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Prince Michael Kemani",
+  "license": "ISC",
+  "keywords": []
+}
