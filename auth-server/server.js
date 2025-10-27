@@ -18,7 +18,8 @@ const creds = {
 };
 
 // initialize variables
-let redirect_uri = process.env.RENDER 
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://music-transfer-five.vercel.app/callback';
+const redirect_uri = process.env.RENDER
   ? 'https://music-transfer-server.onrender.com/callback'
   : 'https://127.0.0.1:8888/callback';
 let client_id = 'a8fd8f81b4884e9495403fd626b8d150'
