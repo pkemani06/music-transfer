@@ -3,11 +3,11 @@ Transfer your Spotify playlists to Apple Music seamlessly with this full-stack w
 Live Demo | Backend API
 
 
-📋 Overview
+Overview
 Music Transfer is a full-stack application that allows users to seamlessly migrate their music library from Spotify to Apple Music. The app extracts playlists and tracks from Spotify, searches for matching songs on Apple Music, and creates new playlists with the transferred content - all while preserving the original playlist names and structure.
 Note: This app is currently in Development Mode on Spotify's platform, which limits usage to 25 authorized users. This is due to Spotify's May 2025 policy change requiring 250k+ MAUs and business registration for Extended Quota Mode.
 
-✨ Features
+Features
 
 - Secure Authentication: OAuth 2.0 integration with Spotify
 - Playlist Management: Select multiple playlists to transfer at once
@@ -19,7 +19,7 @@ Note: This app is currently in Development Mode on Spotify's platform, which lim
 -  Playlist Preservation: Maintains original playlist names and structure
 
 
-🛠️ Tech Stack
+Tech Stack
 Frontend
 
 React 18 - Modern component-based UI
@@ -46,7 +46,8 @@ Spotify Web API - Playlist and track retrieval
 Apple Music API - Catalog search and playlist creation
 
 
-🚀 Live Demo
+Live Demo
+
 Visit the live application: https://music-transfer-five.vercel.app
 Backend API: https://music-transfer-server.onrender.com
 
@@ -151,7 +152,7 @@ RENDER=true (auto-set by Render)
 Frontend
 No environment variables needed - API URLs are hardcoded for production
 
-📝 API Endpoints
+- API Endpoints
 Backend Routes
 Auth Routes:
 
@@ -170,7 +171,7 @@ Apple Music Routes:
 GET /token - Generates Apple Music developer token (JWT)
 
 
-🎯 Key Features Explained
+- Key Features Explained
 OAuth 2.0 Flow
 Implements secure authorization with Spotify using the Authorization Code flow, ensuring user credentials are never exposed to the client.
 JWT Token Generation
@@ -194,7 +195,7 @@ Selects best match based on relevance
 Handles songs not available on Apple Music
 
 
-🚧 Known Limitations
+Known Limitations
 
 Development Mode: Limited to 25 authorized users due to Spotify's Extended Quota Mode requirements
 Playlist Art: Apple Music generates playlist covers automatically - custom artwork cannot be transferred
@@ -216,17 +217,17 @@ Private Playlists: Only transfers user's own playlists, not followed playlists
  Dark/light mode toggle
 
 
-🤝 Contributing
+Contributing
 This is a personal project, but suggestions and feedback are welcome! Feel free to open an issue or reach out.
 
-📄 License
+License
 This project is for educational and portfolio purposes. Please respect Spotify and Apple Music's Terms of Service when using their APIs.
 
-👤 Author
+Author
 Prince Michael Kemani
 
 
-🙏 Acknowledgments
+Acknowledgments
 
 Spotify Web API for playlist data access
 Apple MusicKit JS for Apple Music integration
